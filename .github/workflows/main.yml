@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - "**"
+      - '**'
 
 jobs:
   build:
@@ -67,7 +67,7 @@ jobs:
       - name: Build Android JS Bundle
         run: |
           mkdir -p android/app/build/intermediates/assets/release/
-          NODE_OPTIONS=--openssl-legacy-provider npx react-native bundle \
+          npx react-native bundle \
             --platform android \
             --dev false \
             --entry-file index.js \
