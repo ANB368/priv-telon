@@ -49,6 +49,17 @@ jobs:
 
       - name: Build Android APK
         run: |
+          - name: Install Node.js
+  uses: actions/setup-node@v3
+  with:
+    node-version: 18
+
+- name: Install NPM dependencies
+  run: |
+    cd telon-gateway-app
+    npm install
+          
+  run: |    
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
