@@ -29,8 +29,7 @@ jobs:
         uses: android-actions/setup-android@v2
 
       - name: Accept Android Licenses
-        run: |
-          yes | sdkmanager --licenses || true
+        run: yes | sdkmanager --licenses || true
 
       - name: Install NPM dependencies
         run: npm install
@@ -49,17 +48,6 @@ jobs:
 
       - name: Build Android APK
         run: |
-          - name: Install Node.js
-  uses: actions/setup-node@v3
-  with:
-    node-version: 18
-
-- name: Install NPM dependencies
-  run: |
-    cd telon-gateway-app
-    npm install
-          
-  run: |    
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
